@@ -1,73 +1,26 @@
-# React + TypeScript + Vite
+# Cocokara
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 概要
+Cocokaraは、日々更新され続けるIT技術やエンジニア界隈のトレンド情報の収集における煩雑さを解決するために開発したアプリケーションです。  
 
-Currently, two official plugins are available:
+従来は複数のプラットフォーム（ニュースサイト、SNS、論文サイトなど）に個別にアクセスし、情報を収集する必要がありました。  
+本アプリではそれらの情報を集約し、見出し一覧として可視化することで、効率的な情報収集を可能にします。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 背景・目的
+IT分野における情報ソースは、ニュース記事のようなマス向けメディアに限らず、SNS上の発信や論文など多岐にわたります。  
 
-## React Compiler
+これらを個別に追うことは多大な時間がかかり、情報収集そのものが負担となることがありました。  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+そこで、複数の情報ソースを一つのプラットフォームに統合することで、学習効率を改善し、情報収集に伴う労力の削減を実現できるのではないかと考え、本アプリを開発しました。
 
-## Expanding the ESLint configuration
+## 主な機能
+- 機能①：外部APIを利用したIT関連記事の取得
+ - 特定キーワードに基づいて記事を抽出
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 機能②：記事情報の一覧表示
+ - 記事タイトル・URL・AI要約を1つのブロックとして表示
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 機能③：記事への遷移機能
+ - ブロックをクリックすることで元記事へアクセス
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+ 
